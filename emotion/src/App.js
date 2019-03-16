@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 function App() {
   return (
     <Wrapper>
-      <Title css={{ color: 'hotpink' }}>Emotion</Title>
+      <Title css={{ color: 'hotpink' }}>Emotion rocks!!!</Title>
       <Subtitle>Emotion</Subtitle>
       <Button badass shadow="black">
         Click me
