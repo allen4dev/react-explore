@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Link } from '@reach/router';
+import { Router } from '@reach/router';
 
 const Something = () => {
   return (
@@ -9,11 +9,20 @@ const Something = () => {
   );
 };
 
-function About() {
+function About({ navigate }) {
   return (
     <div>
       <h1>About</h1>
-      <Link to="us">About us</Link>
+      <button
+        type="button"
+        onClick={() => {
+          console.log('Lets navigate');
+
+          navigate('us');
+        }}
+      >
+        Go to /us
+      </button>
 
       {/* Embedded Routers */}
       <Router>
