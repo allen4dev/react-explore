@@ -1,7 +1,12 @@
+import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 
-// eslint-disable-next-line
+const shadow = props => css`
+  box-shadow: 0 0 5px ${props.shadow};
+`;
+
 export const Button = styled.button`
+  ${shadow};
   background-color: blue;
   border: none;
   color: ${({ badass }) => (badass ? '#bada55' : 'darkgray')};

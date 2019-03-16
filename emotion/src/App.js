@@ -18,9 +18,13 @@ function App() {
     <Wrapper>
       <Title css={{ color: 'hotpink' }}>Emotion</Title>
       <Subtitle>Emotion</Subtitle>
-      <Button badass>Click me</Button>
-      <GlamorousButton>So glamorous</GlamorousButton>
-      <EnhancedButton badass fontSize="24px">
+      <Button badass shadow="black">
+        Click me
+      </Button>
+      <GlamorousButton as="a" href="/">
+        So glamorous
+      </GlamorousButton>
+      <EnhancedButton shadow="blue" badass fontSize="24px">
         Enhanced click
       </EnhancedButton>
     </Wrapper>
