@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render 1`] = `
+.emotion-0 {
+  color: white;
+}
+
+<h1
+  class="emotion-0 emotion-1"
+  data-testid="title"
+>
+  My title
+</h1>
+`;

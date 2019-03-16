@@ -1,7 +1,5 @@
-/** @jsx jsx */
-import React from 'react'; // eslint-disable-line
+import React from 'react';
 import { string } from 'prop-types';
-import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 
 const Wrapper = styled.h1`
@@ -9,7 +7,11 @@ const Wrapper = styled.h1`
 `;
 
 function Title({ children, ...props }) {
-  return <Wrapper {...props}>{children}</Wrapper>;
+  return (
+    <Wrapper {...props} data-testid="title">
+      {children}
+    </Wrapper>
+  );
 }
 
 Title.propTypes = {
