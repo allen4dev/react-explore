@@ -1,21 +1,22 @@
 /** @jsx jsx */
 // import React from 'react';
-import { jsx, css } from '@emotion/core';
+import { jsx } from '@emotion/core';
+import styled from '@emotion/styled';
 
-const style = css`
+const Wrapper = styled.div`
   background-color: #bada55;
   padding: 0.5rem;
 `;
 
-const titleStyle = css`
+const Title = styled.h1`
   color: hotpink;
 `;
 
 function App() {
   return (
-    <div css={style}>
-      <h1 css={titleStyle}>Emotion</h1>
-    </div>
+    <Wrapper>
+      <Title>Emotion</Title>
+    </Wrapper>
   );
 }
 
