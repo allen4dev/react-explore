@@ -3,6 +3,7 @@ import { Router, Link } from '@reach/router';
 
 import About from './components/About';
 import Home from './components/Home';
+import Games from './components/Games';
 import Game from './components/Game';
 
 const Popular = () => (
@@ -16,15 +17,16 @@ function App() {
     <div>
       <nav>
         <Link to="/">Home</Link> <Link to="about">About</Link>{' '}
-        <Link to="games/23">Game #23</Link>{' '}
-        <Link to="games/popular">Popular</Link>
+        <Link to="games">Games</Link>
       </nav>
 
       <Router>
         <Home path="/" />
         <About path="about" />
-        <Game path="games/:id" />
-        <Popular path="games/popular" />
+        <Games path="games">
+          <Game path=":id" />
+          <Popular path="popular" />
+        </Games>
       </Router>
     </div>
   );
