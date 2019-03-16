@@ -1,0 +1,7 @@
+/node_modules
+/build
+/coverage
+*.log
+.vscode
+cypress/videos
+cypress/screenshots
