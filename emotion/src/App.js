@@ -5,7 +5,7 @@ import Title, { Subtitle } from './components/Title';
 import { Button, EnhancedButton, GlamorousButton } from './components/Button';
 
 const Wrapper = styled.div`
-  background-color: #bada55;
+  background-color: ${({ theme: { colors } }) => colors.primary};
   padding: 0.5rem;
 
   ${Button} {
