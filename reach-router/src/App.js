@@ -14,17 +14,27 @@ const Popular = () => (
 
 const NotFound = () => <div>Sorry, nothing here.</div>;
 
+const Tags = () => <div>Show tags on /games</div>;
+
 function App() {
   return (
     <div>
       <nav>
         <Link to="/">Home</Link> <Link to="about">About</Link>{' '}
         <Link to="games">Games</Link>
+        <Link to="about/us">About us</Link>
       </nav>
+
+      {/* Multiple Routers */}
+      <aside>
+        <Router primary={false}>
+          <Tags path="games/*" />
+        </Router>
+      </aside>
 
       <Router>
         <Home path="/" />
-        <About path="about" />
+        <About path="about/*" />
         <Games path="games">
           <Game path=":id" />
           <Popular path="popular" />

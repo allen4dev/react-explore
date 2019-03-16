@@ -8,6 +8,7 @@ function Games({ children }) {
       <nav>
         <Link to="23">Game #23</Link> <Link to="popular">Popular</Link>
       </nav>
+
       {children}
     </div>
   );
