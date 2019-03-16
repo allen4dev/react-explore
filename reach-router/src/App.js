@@ -12,6 +12,8 @@ const Popular = () => (
   </div>
 );
 
+const NotFound = () => <div>Sorry, nothing here.</div>;
+
 function App() {
   return (
     <div>
@@ -27,6 +29,7 @@ function App() {
           <Game path=":id" />
           <Popular path="popular" />
         </Games>
+        <NotFound default />
       </Router>
     </div>
   );
