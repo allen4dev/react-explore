@@ -6,6 +6,8 @@ const Wrapper = styled.h1`
   color: white;
 `;
 
+export const Subtitle = Wrapper.withComponent('h2');
+
 function Title({ children, ...props }) {
   return (
     <Wrapper {...props} data-testid="title">
