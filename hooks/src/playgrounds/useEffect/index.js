@@ -7,6 +7,7 @@ function Fetch() {
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState('');
   const [search, setSearch] = useState('');
+  const [error, setError] = useState(false);
 
   const handleSearchChange = ({ target: { value } }) => setQuery(value);
   const handleSubmit = e => {
@@ -21,11 +22,16 @@ function Fetch() {
     async function fetchServants() {
       setLoading(true);
 
-      const { data } = await axios.get(
-        `http://localhost:3000/servants?name_like=${search}`,
-      );
+      try {
+        const { data } = await axios.get(
+          `http://localhost:3000/servawwwwnts?name_like=${search}`,
+        );
 
-      setServants(data);
+        setServants(data);
+      } catch (e) {
+        console.log(e);
+        setError(true);
+      }
 
       setLoading(false);
     }
@@ -45,6 +51,12 @@ function Fetch() {
 
         <button type="submit">Search</button>
       </form>
+
+      {error && (
+        <div>
+          <h1>Boom!!!</h1>
+        </div>
+      )}
 
       {loading ? (
         <div>Loading...</div>
