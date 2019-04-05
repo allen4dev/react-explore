@@ -1,9 +1,10 @@
 import React from 'react';
+import Playgrounds from 'playgrounds';
 
 function App() {
   return (
     <div>
-      <h1>React hooks</h1>
+      <Playgrounds />
     </div>
   );
 }
