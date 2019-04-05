@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import axios from 'axios';
 
-function useFetcher(search) {
+function useFetcher(url) {
   const [servants, setServants] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -12,9 +12,7 @@ function useFetcher(search) {
       setLoading(true);
 
       try {
-        const { data } = await axios.get(
-          `http://localhost:3000/servants?name_like=${search}`,
-        );
+        const { data } = await axios.get(url);
 
         setServants(data);
       } catch (e) {
@@ -26,23 +24,23 @@ function useFetcher(search) {
     }
 
     fetchServants();
-  }, [search]);
+  }, [url]);
 
   return { servants, loading, error };
 }
 
 function Fetch() {
   const [query, setQuery] = useState('');
-  const [search, setSearch] = useState('');
+  const [url, setUrl] = useState('http://localhost:3000/servants?name_like=');
 
-  const { servants, loading, error } = useFetcher(search);
+  const { servants, loading, error } = useFetcher(url);
 
   const handleSearchChange = ({ target: { value } }) => setQuery(value);
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    setSearch(query);
+    setUrl(`http://localhost:3000/servants?name_like=${query}`);
 
     setQuery('');
   };
