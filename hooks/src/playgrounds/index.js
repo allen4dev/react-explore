@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Counter from './Counter';
+import Fetch from './useEffect';
 
 function Playgrounds() {
-  return <Counter />;
+  return <Fetch />;
 }
 
 export default Playgrounds;

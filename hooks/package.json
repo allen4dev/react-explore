@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "db": "json-server db.json",
     "build": "webpack",
     "dev": "webpack-dev-server --color --mode development",
     "test": "npm run test:watch",
