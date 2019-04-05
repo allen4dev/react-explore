@@ -4,16 +4,23 @@ import axios from 'axios';
 
 function Fetch() {
   const [servants, setServants] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function fetchServants() {
+      setLoading(true);
+
       const { data } = await axios.get('http://localhost:3000/servants');
 
       setServants(data);
+
+      setLoading(false);
     }
 
     fetchServants();
   }, []);
+
+  if (loading) return <div>Loading...</div>;
 
   return (
     <section>
