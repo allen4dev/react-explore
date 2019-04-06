@@ -6,10 +6,17 @@ const initialState = {
   servants: [],
   loading: false,
   error: false,
+  query: '',
 };
 
 function servantsReducer(state, action) {
   switch (action.type) {
+    case 'SET_QUERY':
+      return {
+        ...state,
+        query: action.payload.query,
+      };
+
     case 'SET_SERVANTS':
       return {
         ...state,
@@ -34,7 +41,7 @@ function servantsReducer(state, action) {
   }
 }
 
-function useFetcher(url) {
+function useFgoApi(url) {
   const [state, dispatch] = useReducer(servantsReducer, initialState);
 
   useEffect(() => {
@@ -58,19 +65,19 @@ function useFetcher(url) {
 }
 
 function Fetch() {
-  const [query, setQuery] = useState('');
   const [url, setUrl] = useState('http://localhost:3000/servants?name_like=');
 
-  const { state } = useFetcher(url);
+  const { state, dispatch } = useFgoApi(url);
 
-  const handleSearchChange = ({ target: { value } }) => setQuery(value);
+  const handleSearchChange = ({ target: { value } }) =>
+    dispatch({ type: 'SET_QUERY', payload: { query: value } });
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    setUrl(`http://localhost:3000/servants?name_like=${query}`);
+    setUrl(`http://localhost:3000/servants?name_like=${state.query}`);
 
-    setQuery('');
+    dispatch({ type: 'SET_QUERY', payload: { query: '' } });
   };
 
   return (
@@ -79,7 +86,7 @@ function Fetch() {
         <input
           type="text"
           placeholder="Search servant"
-          value={query}
+          value={state.query}
           onChange={handleSearchChange}
         />
 
