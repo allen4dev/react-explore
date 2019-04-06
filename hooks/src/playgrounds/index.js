@@ -1,9 +1,9 @@
 import React from 'react';
 
-import ReducerHook from './useReducer';
+import CallbackExample from './useCallback';
 
 function Playgrounds() {
-  return <ReducerHook />;
+  return <CallbackExample />;
 }
 
 export default Playgrounds;
