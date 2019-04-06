@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Fetch from './useEffect';
+import ReducerHook from './useReducer';
 
 function Playgrounds() {
-  return <Fetch />;
+  return <ReducerHook />;
 }
 
 export default Playgrounds;
