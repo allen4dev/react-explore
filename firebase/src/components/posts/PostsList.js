@@ -1,12 +1,23 @@
 import React from 'react';
+import styled from '@emotion/styled';
 
-function PostsList({ posts }) {
+const Post = styled.div`
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+`;
+
+function PostsList({ posts, deletePost }) {
   return (
     <div>
       {posts.map(post => (
-        <div key={post.id}>
+        <Post key={post.id}>
           <p>{post.text}</p>
-        </div>
+          <button type="button" onClick={() => deletePost(post.id)}>
+            Delete
+          </button>
+        </Post>
       ))}
     </div>
   );
