@@ -1,9 +1,9 @@
 import React from 'react';
 
-import CallbackExample from './useCallback';
+import MemoExample from './useMemo';
 
 function Playgrounds() {
-  return <CallbackExample />;
+  return <MemoExample />;
 }
 
 export default Playgrounds;
