@@ -13,6 +13,8 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
 
     'react/jsx-filename-extension': 'off',
+    'react/prop-types': 'off',
+    'no-debugger': 'warn',
   },
   parserOptions: {
     ecmaVersion: 2016,

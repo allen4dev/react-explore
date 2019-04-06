@@ -1,24 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-import { firestore } from 'utils/firebase';
-
-import { normalizeDocument } from 'utils/helpers';
-
-function PostsList() {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    async function fetchPosts() {
-      const snapshot = await firestore.collection('posts').get();
-
-      const results = snapshot.docs.map(normalizeDocument);
-
-      setPosts(results);
-    }
-
-    fetchPosts();
-  }, []);
-
+function PostsList({ posts }) {
   return (
     <div>
       {posts.map(post => (
