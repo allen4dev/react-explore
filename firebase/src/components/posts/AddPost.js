@@ -10,9 +10,13 @@ function AddPost() {
   const handleSubmit = async e => {
     e.preventDefault();
 
-    await firestore.collection('posts').add({ text });
+    try {
+      await firestore.collection('posts').add({ text });
 
-    setText('');
+      setText('');
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
