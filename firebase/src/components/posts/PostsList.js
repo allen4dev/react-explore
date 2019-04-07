@@ -16,14 +16,12 @@ function PostsList() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    async function fetchPosts() {
-      const unsubscribe = await firestore
-        .collection('posts')
-        .onSnapshot(snapshot => {
-          const results = snapshot.docs.map(normalizeDocument);
+    function fetchPosts() {
+      const unsubscribe = firestore.collection('posts').onSnapshot(snapshot => {
+        const results = snapshot.docs.map(normalizeDocument);
 
-          setPosts(results);
-        });
+        setPosts(results);
+      });
 
       return unsubscribe;
     }
