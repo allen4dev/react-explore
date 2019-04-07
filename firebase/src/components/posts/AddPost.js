@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { firestore } from 'utils/firebase';
 
-function AddPost() {
+function AddPost({ user }) {
   const [text, setText] = useState('');
 
   const handleChange = ({ target: { value } }) => setText(value);
@@ -11,7 +11,7 @@ function AddPost() {
     e.preventDefault();
 
     try {
-      await firestore.collection('posts').add({ text });
+      await firestore.collection('posts').add({ userId: user.uid, text });
 
       setText('');
     } catch (err) {

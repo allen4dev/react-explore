@@ -34,17 +34,25 @@ function PostsList() {
   }, []);
 
   const deletePost = async id => {
-    await firestore
-      .collection('posts')
-      .doc(id)
-      .delete();
+    try {
+      await firestore
+        .collection('posts')
+        .doc(id)
+        .delete();
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const updatePost = async id => {
-    await firestore
-      .collection('posts')
-      .doc(id)
-      .update({ text: 'Get this value somewhere else' });
+    try {
+      await firestore
+        .collection('posts')
+        .doc(id)
+        .update({ text: 'Get this value somewhere else' });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (

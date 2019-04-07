@@ -7,7 +7,7 @@ import AddPost from 'components/posts/AddPost';
 import { auth } from 'utils/firebase';
 
 function App() {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(authUser => setUser(authUser));
@@ -20,7 +20,7 @@ function App() {
   return (
     <div>
       <Header user={user} />
-      <AddPost />
+      <AddPost user={user} />
       <PostsList />
     </div>
   );
