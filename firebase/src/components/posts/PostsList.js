@@ -35,18 +35,29 @@ function PostsList() {
     };
   }, []);
 
-  async function deletePost(id) {
+  const deletePost = async id => {
     await firestore
       .collection('posts')
       .doc(id)
       .delete();
-  }
+  };
+
+  const updatePost = async id => {
+    await firestore
+      .collection('posts')
+      .doc(id)
+      .update({ text: 'Get this value somewhere else' });
+  };
 
   return (
     <div>
       {posts.map(post => (
         <Post key={post.id}>
           <p>{post.text}</p>
+
+          <button type="button" onClick={() => updatePost(post.id)}>
+            Update
+          </button>
 
           <button type="button" onClick={() => deletePost(post.id)}>
             Delete
