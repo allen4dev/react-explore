@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 
-function AddPost({ createPost }) {
+import { firestore } from 'utils/firebase';
+
+function AddPost() {
   const [text, setText] = useState('');
 
   const handleChange = ({ target: { value } }) => setText(value);
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
-    createPost({ text });
+    await firestore.collection('posts').add({ text });
 
     setText('');
   };
