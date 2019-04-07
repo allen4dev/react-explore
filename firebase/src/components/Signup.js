@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { register, signinWithGoogle } from 'utils/firebase';
+import { login, register, signinWithGoogle } from 'utils/firebase';
 
 function useForm(initialValues) {
   const [values, setValues] = useState(initialValues);
@@ -13,10 +13,16 @@ function useForm(initialValues) {
 function Signup() {
   const { values, handleInputChange } = useForm({ email: '', password: '' });
 
-  const handleSubmit = e => {
+  const handleRegister = e => {
     e.preventDefault();
 
     register(values.email, values.password);
+  };
+
+  const handleLogin = e => {
+    e.preventDefault();
+
+    login(values.email, values.password);
   };
 
   return (
@@ -44,8 +50,12 @@ function Signup() {
           />
         </label>
 
-        <button type="button" onClick={handleSubmit}>
+        <button type="button" onClick={handleRegister}>
           Register
+        </button>
+
+        <button type="button" onClick={handleLogin}>
+          Login
         </button>
       </div>
 
