@@ -1,6 +1,12 @@
 import React from 'react';
+import styled from '@emotion/styled';
 
-import { signinWithGoogle } from 'utils/firebase';
+import { signinWithGoogle, signOut } from 'utils/firebase';
+
+const SignOut = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
 function Header({ user }) {
   return (
@@ -10,10 +16,13 @@ function Header({ user }) {
           Signin with Google
         </button>
       ) : (
-        <div>
+        <SignOut>
           {/* <pre>{JSON.stringify(user, undefined, 2)}</pre> */}
-          <pre>Welcome, {user.displayName}</pre>
-        </div>
+          <p>Welcome, {user.displayName}</p>
+          <button type="button" onClick={signOut}>
+            Sign out
+          </button>
+        </SignOut>
       )}
     </div>
   );
