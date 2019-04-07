@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import { signinWithGoogle, signOut } from 'utils/firebase';
+import { signOut } from 'utils/firebase';
+
+import Signup from './Signup';
 
 const SignOut = styled.div`
   display: flex;
@@ -12,9 +14,7 @@ function Header({ user }) {
   return (
     <div>
       {!user ? (
-        <button type="button" onClick={signinWithGoogle}>
-          Signin with Google
-        </button>
+        <Signup />
       ) : (
         <SignOut>
           {/* <pre>{JSON.stringify(user, undefined, 2)}</pre> */}
